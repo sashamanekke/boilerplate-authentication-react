@@ -61,6 +61,8 @@ export function signoutUser(){
 export function fetchMessage(){
   return function(dispatch){
     axios.get(ROOT_URL, {
+      // this is key here! because now we van make auhtenticated request to the
+      // backend server by including the token in the header
       headers: {authorization: localStorage.getItem('token')}
     })
       .then(response => {
